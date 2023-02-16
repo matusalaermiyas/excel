@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 openpyxl = "*"
+pynsist = "*"
+python-docx = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -5,12 +5,46 @@ from openpyxl.cell import Cell
 
 import os
 
+
 try:
     app = Tk()
 
     x = ttk.Style()
     x.configure("BW.TLabel", foreground="white",
                 background="darkgrey", font=('calibri', 15, 'bold'), padding=10)
+
+    def handle_get_invalid_id():
+        path = filedialog.askopenfilename()
+
+        if path == "":
+            messagebox.showerror(
+                "Error", message="Make Sure To Select A File")
+            return
+
+        workbook: Workbook = load_workbook(path)
+        workspace = workbook.active
+
+        invalid_workbook = Workbook()
+        invalid_workspace = invalid_workbook.active
+        file_name = os.path.basename(path)
+
+        count: int = 1
+
+        for row in workspace.iter_rows():
+
+            cell: Cell
+
+            for cell in row:
+                if cell.fill.start_color.index == "00FF0000":
+                    cell_name = f"A{count}"
+                    print(cell_name)
+                    invalid_workspace[cell_name] = cell.value
+                    count = count + 1
+                    break
+
+            invalid_workbook.save(f"IDS\Invalid IDS {file_name}")
+
+        messagebox.showinfo("Success", "Invalid IDS created successfully")
 
     def get_column_input() -> str:
         return column_input.get()
@@ -72,6 +106,10 @@ try:
     open_button = ttk.Button(app, text='Open Excel',
                              command=handle_open, style='BW.TLabel')
     open_button.place(x=150, y=150, width=200, height=50)
+
+    get_invalid_id_button = ttk.Button(
+        app, text="Get invalid ", command=handle_get_invalid_id, style='BW.TLabel')
+    get_invalid_id_button.place(x=150, y=220, height=50, width=200)
 
     app.geometry("500x500")
     app.title("Excel")
