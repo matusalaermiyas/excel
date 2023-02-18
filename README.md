@@ -11,3 +11,5 @@
 ## 4 pipenv install
 
 ## 5. python main.py
+
+## CD Java and Run
