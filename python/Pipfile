@@ -7,6 +7,11 @@ name = "pypi"
 openpyxl = "*"
 pynsist = "*"
 python-docx = "*"
+docx = "*"
+pypdf = "*"
+docx2pdf = "*"
+pypdf2 = "*"
+aspose-words = "*"
 
 [dev-packages]
 autopep8 = "*"
