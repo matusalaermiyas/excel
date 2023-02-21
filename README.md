@@ -1,4 +1,4 @@
-# Automate Some Excel Working with Python and Java
+# Automate Some Excel Working with Python
 
 ## Instruction
 

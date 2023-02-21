@@ -18,7 +18,7 @@ class CreateExcelWithInvalidIds:
     def create_ui(self):
         get_invalid_id_button = ttk.Button(
             self.app, text=self.button_label, command=self.handle_get_invalid_id, style='BW.TLabel')
-        get_invalid_id_button.place(x=150, y=220, height=50, width=400)
+        get_invalid_id_button.place(x=150, y=250, height=50, width=400)
 
     def handle_get_invalid_id(self):
         path = filedialog.askopenfilename()
@@ -39,7 +39,7 @@ class CreateExcelWithInvalidIds:
         for row in workspace.iter_rows():
 
             for cell in row:
-                if cell.fill.start_color.index == "00FF0000":
+                if cell.fill.start_color.index != "00000000":
                     cell_name = f"A{count}"
 
                     invalid_workspace[cell_name] = cell.value

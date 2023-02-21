@@ -29,14 +29,14 @@ class MakeRowRedWithInvalidData:
 
         self.column_input = ttk.Entry(self.app)
         self.column_input.place(x=150, y=40, width=300, height=30)
-        self.column_input.insert(0, "Max Column")
+        self.column_input.insert(0, "s")
 
         row_label = ttk.Label(self.app, text="Starting Row")
         row_label.place(x=40, y=100)
 
         self.row_input = ttk.Entry(self.app)
         self.row_input.place(x=150, y=100, width=300, height=30)
-        self.row_input.insert(0, "Starting Row")
+        self.row_input.insert(0, "5")
 
         open_button = ttk.Button(self.app, text='Open Excel',
                                  command=self.handle_open, style='BW.TLabel')

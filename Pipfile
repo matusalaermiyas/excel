@@ -12,6 +12,7 @@ pypdf = "*"
 docx2pdf = "*"
 pypdf2 = "*"
 aspose-words = "*"
+pdf2docx = "*"
 
 [dev-packages]
 autopep8 = "*"
